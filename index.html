@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Plazo — Business Development Manager | Sales Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --panel:#0d0d0d;
+    --panel-2:#141414;
+    --line:#232323;
+    --white:#ffffff;
+    --muted:#b7b7b7;
+    --dim:#7c7c7c;
+    --accent:#d8c9a3;
+    --serif:'Cormorant Garamond', serif;
+    --sans:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:var(--sans);
+    line-height:1.6;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+  section{padding:120px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;padding-top:0;padding-bottom:0;}
+  .brand{font-family:var(--serif);font-size:22px;letter-spacing:0.5px;}
+  .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+  .navlinks a{text-decoration:none;transition:color .2s;}
+  .navlinks a:hover{color:var(--white);}
+  .navlinks{display:none;}
+  @media(min-width:800px){.navlinks{display:flex;}}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding-top:72px;border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;}
+  @media(max-width:800px){.hero .wrap{grid-template-columns:1fr;text-align:center;}}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:22px;}
+  h1.headline{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(40px,5.2vw,68px);line-height:1.05;
+    margin-bottom:28px;
+  }
+  h1.headline em{font-style:italic;color:var(--accent);}
+  .lede{color:var(--muted);font-size:17px;max-width:460px;margin-bottom:34px;}
+  @media(max-width:800px){.lede{margin-left:auto;margin-right:auto;}}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  @media(max-width:800px){.btn-row{justify-content:center;}}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 30px;border-radius:999px;
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    text-decoration:none;border:1px solid var(--white);
+    transition:all .25s;
+  }
+  .btn-solid{background:var(--white);color:#000;}
+  .btn-solid:hover{background:transparent;color:var(--white);}
+  .btn-ghost{color:var(--white);}
+  .btn-ghost:hover{background:var(--white);color:#000;}
+
+  .portrait-frame{
+    justify-self:center;position:relative;
+    width:min(360px,80vw);aspect-ratio:7/9;
+    border-radius:50%;overflow:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,.6);
+  }
+  .portrait-frame img{width:100%;height:100%;object-fit:cover;}
+
+  /* SECTION HEADERS */
+  .section-head{margin-bottom:56px;}
+  .section-head .num{font-family:var(--sans);font-size:12px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin-bottom:14px;}
+  .section-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,46px);}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;}
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:var(--muted);font-size:17px;margin-bottom:18px;max-width:560px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+  .stat{border-top:1px solid var(--line);padding-top:16px;}
+  .stat .n{font-family:var(--serif);font-size:40px;color:var(--accent);}
+  .stat .l{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-top:6px;}
+
+  /* BACKGROUND / EXPERIENCE */
+  .exp-col h3, .edu-col h3{
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:24px;
+  }
+  .exp-list{list-style:none;}
+  .exp-item{
+    display:flex;justify-content:space-between;gap:20px;
+    padding:20px 0;border-top:1px solid var(--line);
+  }
+  .exp-item:last-child{border-bottom:1px solid var(--line);}
+  .exp-role{font-size:17px;}
+  .exp-date{color:var(--dim);font-size:14px;white-space:nowrap;}
+  .edu-col p{color:var(--muted);}
+  .bg-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;}
+  @media(max-width:800px){.bg-grid{grid-template-columns:1fr;}}
+
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service-card{background:var(--bg);padding:36px 30px;}
+  .service-card .si{font-family:var(--serif);font-size:26px;color:var(--accent);margin-bottom:16px;display:block;}
+  .service-card h4{font-size:17px;margin-bottom:8px;font-weight:600;}
+  .service-card p{color:var(--dim);font-size:14px;}
+
+  /* CERTIFICATES */
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:800px){.cert-grid{grid-template-columns:1fr;}}
+  .cert-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel);transition:transform .3s, border-color .3s;}
+  .cert-card:hover{transform:translateY(-6px);border-color:#3a3a3a;}
+  .cert-card img{width:100%;}
+  .cert-card .cap{padding:16px 18px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);}
+
+  /* SETUP */
+  .setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:800px){.setup-grid{grid-template-columns:1fr;}}
+  .setup-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel);}
+  .setup-card img{width:100%;}
+  .setup-card .cap{padding:16px 18px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);text-transform:uppercase;letter-spacing:1px;}
+
+  /* PERFORMANCE */
+  .perf-intro{color:var(--muted);font-size:16px;max-width:640px;margin-bottom:16px;}
+  .perf-flow{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:20px;margin-bottom:60px;}
+  .perf-block{display:grid;grid-template-columns:0.9fr 1.4fr;gap:48px;align-items:center;margin-bottom:80px;}
+  .perf-block:last-child{margin-bottom:0;}
+  @media(max-width:850px){.perf-block{grid-template-columns:1fr;}}
+  .perf-label{font-family:var(--serif);font-size:34px;margin-bottom:14px;}
+  .perf-block p{color:var(--dim);font-size:14.5px;}
+  .perf-img{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .perf-block.reverse .perf-img{order:-1;}
+  @media(max-width:850px){.perf-block.reverse .perf-img{order:0;}}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:800px){.testi-grid{grid-template-columns:1fr;}}
+  .testi-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .testi-card img{width:100%;}
+
+  /* CONTACT */
+  .contact{text-align:center;}
+  .contact .section-head{margin-bottom:70px;}
+  .contact-grid{
+    display:grid;grid-template-columns:repeat(4,auto);gap:56px;
+    justify-content:center;margin-bottom:56px;
+  }
+  @media(max-width:800px){.contact-grid{grid-template-columns:1fr;gap:32px;}}
+  .contact-item .l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;}
+  .contact-item .v{font-size:17px;}
+  .contact-item a{text-decoration:none;border-bottom:1px solid var(--line);}
+  .contact-item a:hover{border-color:var(--white);}
+
+  footer{padding:36px 0;text-align:center;color:var(--dim);font-size:13px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">James Plazo</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#background">Background</a>
+      <a href="#services">Services</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-ghost" style="padding:10px 22px;">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Business Development &amp; Sales Leadership</div>
+      <h1 class="headline">Business Development Manager <em>|</em> Sales Leader</h1>
+      <p class="lede">8+ years turning outbound pipelines into paying clients — across B2B and B2C markets, from HR Tech to health &amp; wellness.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-solid">Work with me today</a>
+        <a href="#results" class="btn btn-ghost">See the results</a>
+      </div>
+    </div>
+    <div class="portrait-frame">
+      <img src="images/photo_hero.jpg" alt="James Plazo">
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">01 — Who is James</div>
+      <h2>Results, not just activity.</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a results-driven Business Development Manager and Sales Leader with 8+ years of experience leading outbound sales teams, generating qualified leads, and converting prospects into paying clients across B2B and B2C markets.</p>
+        <p>I help businesses scale revenue by building strong sales pipelines, coaching high-performing teams, and driving consistent, measurable growth.</p>
+      </div>
+      <div>
+        <div class="stat-row">
+          <div class="stat"><div class="n">8+</div><div class="l">Years in sales &amp; BD</div></div>
+          <div class="stat"><div class="n">B2B</div><div class="l">&amp; B2C markets</div></div>
+          <div class="stat"><div class="n">100%</div><div class="l">Pipeline-driven growth</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">02 — Background</div>
+      <h2>My Background</h2>
+    </div>
+    <div class="bg-grid">
+      <div class="edu-col">
+        <h3>Education</h3>
+        <p>Bachelor of Science in Entrepreneurship<br>De La Salle University, 2022</p>
+      </div>
+      <div class="exp-col">
+        <h3>Work Experience</h3>
+        <ul class="exp-list">
+          <li class="exp-item"><span class="exp-role">Sales Team Manager</span><span class="exp-date">2025–2026</span></li>
+          <li class="exp-item"><span class="exp-role">Business Development Manager</span><span class="exp-date">2025</span></li>
+          <li class="exp-item"><span class="exp-role">Outbound Sales Team Leader</span><span class="exp-date">2024–2025</span></li>
+          <li class="exp-item"><span class="exp-role">Business Development Manager</span><span class="exp-date">2021–2024</span></li>
+          <li class="exp-item"><span class="exp-role">Team Manager</span><span class="exp-date">2018–2021</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">03 — Services</div>
+      <h2>How I can help</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><span class="si">01</span><h4>Business Development &amp; Sales Strategy</h4><p>Building the roadmap that turns prospects into predictable revenue.</p></div>
+      <div class="service-card"><span class="si">02</span><h4>Outbound Sales Team Leadership</h4><p>Coaching and managing teams to hit — and beat — their targets.</p></div>
+      <div class="service-card"><span class="si">03</span><h4>Lead Generation &amp; Pipeline Management</h4><p>Keeping the pipeline full of qualified, sales-ready leads.</p></div>
+      <div class="service-card"><span class="si">04</span><h4>Appointment Setting &amp; Calendar Coordination</h4><p>Getting the right conversations booked at the right time.</p></div>
+      <div class="service-card"><span class="si">05</span><h4>Client Relationship Management</h4><p>Turning first-time buyers into long-term, loyal clients.</p></div>
+      <div class="service-card"><span class="si">06</span><h4>Sales Performance Reporting &amp; Analysis</h4><p>Tracking the numbers that show what's actually working.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">04 — Certificates</div>
+      <h2>Continuous learning</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <img src="images/cert_sv.jpg" alt="Groundwork for Success in Sales Development certificate">
+        <div class="cap">Groundwork for Success in Sales Development — SV Academy / Salesforce</div>
+      </div>
+      <div class="cert-card">
+        <img src="images/cert_gcloud.jpg" alt="Google Cloud Digital Leader Training certificate">
+        <div class="cap">Google Cloud Digital Leader Training — 6 courses</div>
+      </div>
+      <div class="cert-card">
+        <img src="images/cert_linkedin.jpg" alt="LinkedIn Marketing Strategy certificate">
+        <div class="cap">LinkedIn Marketing Strategy — LinkedIn Marketing Labs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">05 — Remote Work Setup</div>
+      <h2>Built to work without downtime</h2>
+    </div>
+    <div class="setup-grid">
+      <div class="setup-card">
+        <img src="images/device_specs.jpg" alt="Main device specifications">
+        <div class="cap">Main Device Specs</div>
+      </div>
+      <div class="setup-card">
+        <img src="images/internet_speed.jpg" alt="Internet speed test result">
+        <div class="cap">Internet Speed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">06 — Performance Report Samples</div>
+      <h2>From lead to client</h2>
+    </div>
+    <p class="perf-intro">Real performance reports from campaigns I've led, showing the full journey from first contact to closed client.</p>
+    <p class="perf-flow">Generated Leads → Booked Appointments → Converted Paying Clients</p>
+
+    <div class="perf-block">
+      <div>
+        <div class="perf-label">March – May</div>
+        <p>HR Tech &amp; SaaS Industry — with over 3 years as a Business Development Manager in the HR Tech industry, I specialize in generating qualified leads, scheduling appointments, and converting clients. These reports (March–May 2024) showcase that process.</p>
+      </div>
+      <div class="perf-img"><img src="images/march.jpg" alt="March performance report"></div>
+    </div>
+
+    <div class="perf-block reverse">
+      <div>
+        <div class="perf-label">April</div>
+        <p>Continued lead generation and appointment-setting performance for the HR Tech &amp; SaaS campaign.</p>
+      </div>
+      <div class="perf-img"><img src="images/april.jpg" alt="April performance report"></div>
+    </div>
+
+    <div class="perf-block">
+      <div>
+        <div class="perf-label">May</div>
+        <p>Closing out the HR Tech &amp; SaaS quarter with consistent, subscribed conversions.</p>
+      </div>
+      <div class="perf-img"><img src="images/may.jpg" alt="May performance report"></div>
+    </div>
+
+    <div class="perf-block reverse">
+      <div>
+        <div class="perf-label">June – August</div>
+        <p>Aesthetics / Health &amp; Wellness Industry — as an Outbound Sales Team Leader, I lead a team focused on generating qualified leads and setting appointments that convert into paying clients. These reports (June–August 2025) showcase my team's performance under my leadership.</p>
+      </div>
+      <div class="perf-img"><img src="images/june.jpg" alt="June performance report"></div>
+    </div>
+
+    <div class="perf-block">
+      <div>
+        <div class="perf-label">July</div>
+        <p>Sustained booked-appointment volume across multiple locations, all completed.</p>
+      </div>
+      <div class="perf-img"><img src="images/july.jpg" alt="July performance report"></div>
+    </div>
+
+    <div class="perf-block reverse">
+      <div>
+        <div class="perf-label">August</div>
+        <p>Closing the quarter with a full slate of completed client appointments.</p>
+      </div>
+      <div class="perf-img"><img src="images/august.jpg" alt="August performance report"></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">07 — Testimonials</div>
+      <h2>What clients say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><img src="images/email1.jpg" alt="Testimonial email from Alex I."></div>
+      <div class="testi-card"><img src="images/email2.jpg" alt="Testimonial email from Barry F."></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">08 — Let's Get Started</div>
+      <h2>Let's build your pipeline.</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="l">Address</div>
+        <div class="v">Davao City, Philippines</div>
+      </div>
+      <div class="contact-item">
+        <div class="l">Email</div>
+        <div class="v"><a href="mailto:jamesbonnilplazo@gmail.com">jamesbonnilplazo@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="l">Phone</div>
+        <div class="v"><a href="tel:+639916497283">+63 991 649 7283</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="l">LinkedIn</div>
+        <div class="v"><a href="https://bit.ly/41GxLMx" target="_blank" rel="noopener">bit.ly/41GxLMx</a></div>
+      </div>
+    </div>
+    <a href="mailto:jamesbonnilplazo@gmail.com" class="btn btn-solid">Work with me today</a>
+  </div>
+</section>
+
+<footer>© 2026 James Plazo. All rights reserved.</footer>
+
+</body>
+</html>
